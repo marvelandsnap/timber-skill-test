@@ -1,0 +1,10 @@
+@import 'variables';
+
+.login h1 a {
+  aspect-ratio: $login-logo-aspect-ratio;
+  background-image: url($login-logo-url);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: auto;
+  width: 100%;
+}

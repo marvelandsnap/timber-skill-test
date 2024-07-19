@@ -1,0 +1,6 @@
+@use 'sass:list';
+
+$theme-path: '/wp-content/themes/elevatex';
+
+$login-logo-url:          $theme-path + '/img/login.webp';
+$login-logo-aspect-ratio: list.slash(320, 65);
