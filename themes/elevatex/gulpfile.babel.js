@@ -56,7 +56,7 @@ export const lint = () => {
 /* THEME SCRIPTS *************************************************************/
 
 export const scripts = () => {
-  return src(['./src/js/*.js', '!./src/js/service-worker.js', './src/js/dashboard/*.js'], {base: './src/js/'})
+  return src(['./src/js/*.js'], {base: './src/js/'})
     .pipe(named())
     .pipe(
       webpack({
@@ -84,46 +84,6 @@ export const scripts = () => {
       })
     )
     .pipe(gulpif(PRODUCTION, rev()))
-    .pipe(dest('dist/js'))
-    .pipe(gulpif(PRODUCTION, rename((path) => {
-      return {
-        dirname: 'dist/js/' + path.dirname,
-        basename: path.basename,
-        extname: path.extname,
-      }
-    })))
-    .pipe(gulpif(PRODUCTION, rev.manifest('dist/rev-manifest.json', {base: process.cwd() + '/dist', merge: true})))
-    .pipe(gulpif(PRODUCTION, dest('dist')));
-};
-
-/* SERVICE WORKER ************************************************************/
-
-export const serviceWorker = () => {
-  return src('./src/js/service-worker.js', {base: './src/js/'})
-    .pipe(named())
-    .pipe(webpack({
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: []
-            }
-          }
-        }
-      ]
-    },
-    mode: PRODUCTION ? 'production' : 'development',
-    devtool: !PRODUCTION ? 'inline-source-map' : false,
-    output: {
-      filename: '../../../../../[name].js'
-    },
-    externals: {
-      jquery: 'jQuery'
-    },
-  }))
     .pipe(dest('dist/js'))
     .pipe(gulpif(PRODUCTION, rename((path) => {
       return {
@@ -168,7 +128,7 @@ export const watchForChanges = () => {
 
 /* DEV/BUILD TASKS ***********************************************************/
 
-export const dev = series(lint, clean, parallel(styles, scripts, serviceWorker), serve, watchForChanges);
-export const build = series(lint, clean, parallel(styles, scripts, serviceWorker));
+export const dev = series(lint, clean, parallel(styles, scripts), serve, watchForChanges);
+export const build = series(lint, clean, parallel(styles, scripts));
 
 export default dev;

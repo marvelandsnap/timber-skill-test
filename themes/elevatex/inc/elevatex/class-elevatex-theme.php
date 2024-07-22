@@ -167,8 +167,6 @@ if ( ! class_exists( 'ElevateX_Theme' ) ) {
 
 			wp_enqueue_style( 'elevatex-dashboard', get_stylesheet_directory_uri() . '/' . $this->get_asset_version( 'dist/css/dashboard.css' ), null, null );
 
-			wp_enqueue_script( 'elevatex-deregister-service-worker', get_stylesheet_directory_uri() . '/' . $this->get_asset_version( 'dist/js/dashboard/deregister-service-worker.js' ), null, null, true );
-
 			// phpcs:enable
 		}
 

@@ -3,6 +3,5 @@
   "dist/css/login.css": "dist/css/login-431c2e757f.css",
   "dist/css/theme.css": "dist/css/theme-d41d8cd98f.css",
   "dist/js/above-fold.js": "dist/js/above-fold-b8737b5e61.js",
-  "dist/js/below-fold.js": "dist/js/below-fold-a723920b3c.js",
-  "dist/js/dashboard/deregister-service-worker.js": "dist/js/dashboard/deregister-service-worker-f4de80ef0e.js"
+  "dist/js/below-fold.js": "dist/js/below-fold-d41d8cd98f.js"
 }
