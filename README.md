@@ -59,7 +59,7 @@ Your skill test will incorporate a “bare” version of our ElevateX starter th
 ### JavaScript
 
 - Write your JavaScript using ES6, which will be compiled using our theme’s `gulp` tasks.
-- Demonstrate combined usage of *both* ES6 and jQuery (interactivity) to:
+- Demonstrate combined usage of *both* ES6 (`const`, `let`, arrow functions, etc.) and jQuery (event binding, interactivity, etc.) to:
     - filter the `team_member` custom post type by the `department` custom taxonomy using Ajax, and display a “no results found” message where appropriate;
     - display team members’ biographies in a styled popup;
     - add simple animations to the page, e.g. fading in elements as they enter the viewport. You can use jQuery’s animation methods or apply classes containing your own CSS animations.
