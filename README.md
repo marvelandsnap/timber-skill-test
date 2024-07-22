@@ -28,9 +28,9 @@ Your skill test will incorporate a “bare” version of our ElevateX starter th
 
 1. Accept our invitation to the `timber-skill-test` repository.
 2. Clone the `BRANCHNAME` branch of the `timber-skill-test` repository: `git clone -b BRANCHNAME https://github.com/marvelandsnap/timber-skill-test.git`
-3. Import the provided preconfigured database from `database/database.sql.gz`.
-3. Read the following requirements and refer to `themes/elevatex/README.md` to begin development.
-4. Commit and push your work to the `BRANCHNAME` branch, including a final export of your working database and `wp-content/uploads` folder.
+4. Import the provided preconfigured database from `database/database.sql.gz`.
+5. Read the following requirements and refer to `themes/elevatex/README.md` to begin development.
+6. Commit and push your work to the `BRANCHNAME` branch, including a final export of your working database and `wp-content/uploads` folder.
 
 ## Requirements
 
