@@ -127,6 +127,8 @@ if ( ! class_exists( 'ElevateX_Theme' ) ) {
 
 			// phpcs:disable
 
+			wp_enqueue_style( 'elevatex-google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap' );
+
 			wp_enqueue_style( 'elevatex-theme', get_stylesheet_directory_uri() . '/' . $this->get_asset_version( 'dist/css/theme.css' ) );
 
 			wp_enqueue_script( 'elevatex-above-fold', get_stylesheet_directory_uri() . '/' . $this->get_asset_version( 'dist/js/above-fold.js' ), array( 'jquery' ), null, true );

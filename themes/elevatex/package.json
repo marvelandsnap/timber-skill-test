@@ -37,6 +37,7 @@
 		"gulp-sass-glob": "^1.1.0",
 		"gulp-sourcemaps": "^3.0.0",
 		"jshint": "^2.13.6",
+		"normalize.css": "^8.0.1",
 		"postcss": "^8.4.38",
 		"rfs": "^10.0.0",
 		"sass": "^1.77.0",

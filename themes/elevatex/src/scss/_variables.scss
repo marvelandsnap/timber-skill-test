@@ -4,3 +4,6 @@ $theme-path: '/wp-content/themes/elevatex';
 
 $login-logo-url:          $theme-path + '/img/login.webp';
 $login-logo-aspect-ratio: list.slash(320, 65);
+
+$font-family-roboto-mono: 'Roboto Mono', monospace;
+$font-family-montserrat:  'Montserrat', sans-serif;

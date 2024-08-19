@@ -1,5 +1,3 @@
-const PRODUCTION = yargs(process.argv) ?? false;
-
 import { src, dest, watch, series, parallel } from 'gulp';
 import autoprefixer from 'autoprefixer';
 import cleanCss from 'gulp-clean-css';
@@ -21,6 +19,8 @@ const sass = gulpSass(dartSass);
 
 import browserSync from 'browser-sync';
 const server = browserSync.create();
+
+const PRODUCTION = yargs.argv && yargs.argv.prod;
 
 /* THEME STYLES **************************************************************/
 
