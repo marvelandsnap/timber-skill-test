@@ -20,7 +20,7 @@ const sass = gulpSass(dartSass);
 import browserSync from 'browser-sync';
 const server = browserSync.create();
 
-const PRODUCTION = yargs.argv && yargs.argv.prod;
+const PRODUCTION = yargs(process.argv).argv.prod;
 
 /* THEME STYLES **************************************************************/
 
