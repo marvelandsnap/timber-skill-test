@@ -1,11 +1,11 @@
 <?php
 /**
- * ElevateX_Theme_Base class definition.
+ * ElevateX\Foundation class definition.
  *
  * DO NOT MODIFY THIS FILE! It is intended to be the same across all
  * of our ElevateX-based themes so that we can update it with extra
  * improvements in the future. Any customizations or overrides on a
- * per-theme basis should be made within the ElevateX_Theme class.
+ * per-theme basis should be made within the ElevateX\Theme class.
  *
  * @package    WordPress
  * @subpackage ElevateX
@@ -14,16 +14,18 @@
  * @link       https://www.marvelandsnap.com
  */
 
+namespace ElevateX;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'ElevateX_Theme_Base' ) ) {
+if ( ! class_exists( '\ElevateX\Foundation' ) ) {
 
 	/**
-	 * ElevateX_Theme_Base class definition.
+	 * ElevateX\Foundation class definition.
 	 */
-	class ElevateX_Theme_Base {
+	class Foundation {
 
 		/**
 		 * Array of default class options.
@@ -51,7 +53,7 @@ if ( ! class_exists( 'ElevateX_Theme_Base' ) ) {
 		protected $options = array();
 
 		/**
-		 * ElevateX_Theme_Base class constructor.
+		 * ElevateX\Foundation class constructor.
 		 *
 		 * @param array $options Overridden class options from ElevateX_Theme.
 		 */
@@ -79,8 +81,10 @@ if ( ! class_exists( 'ElevateX_Theme_Base' ) ) {
 			endif;
 
 			if ( $this->options['disable_acf_dashboard_on_pantheon'] ) :
-				$this->disable_acf_dashboard_on_pantheon();
+				add_action( 'admin_init', array( $this, 'disable_acf_dashboard_on_pantheon' ) );
 			endif;
+
+			add_filter( 'upload_mimes', array( $this, 'allow_svg_uploads' ), 10, 1 );
 
 			$this->customize_login_form();
 		}
@@ -175,10 +179,42 @@ if ( ! class_exists( 'ElevateX_Theme_Base' ) ) {
 		 */
 		public function disable_acf_dashboard_on_pantheon() {
 
-			if ( self::is_pantheon() && ! self::is_pantheon( 'auto-update' ) ) {
+			if ( self::is_pantheon() && ! wp_doing_ajax() ) {
 
-				add_filter( 'acf/settings/show_admin', '__return_false' );
+				if ( isset( $_GET['post_type'] ) && str_starts_with( $_GET['post_type'], 'acf-' ) && ( ! isset( $_GET['page'] ) || 'acf-settings-updates' !== $_GET['page'] ) ) { // phpcs:ignore
+
+					$updates_link = '<a href="/wp-admin/edit.php?post_type=acf-field-group&page=acf-settings-updates">Updates</a>';
+
+					$support_link = '<a href="mailto:support@marvelandsnap.com" target="_blank">support@marvelandsnap.com</a>';
+
+					$error = sprintf(
+						// translators: %1$s = $updates_link; %2$s = $support_link.
+						__( 'Only Advanced Custom Fields\' %1$s page may be accessed on Pantheon. If you believe this is an error, please contact %2$s.', 'elevatex' ),
+						$updates_link,
+						$support_link
+					);
+
+					wp_die( wp_kses_post( $error ) );
+				}
 			}
+		}
+
+		/**
+		 * Allow SVG uploads in the Media Library.
+		 *
+		 * @link https://developer.wordpress.org/reference/hooks/upload_mimes/
+		 *
+		 * @param array $t Mime types keyed by the file extension regex corresponding to those types.
+		 *
+		 * @return array
+		 */
+		public function allow_svg_uploads( $t ) {
+			return array_merge(
+				$t,
+				array(
+					'svg' => 'image/svg+xml',
+				)
+			);
 		}
 
 		/**

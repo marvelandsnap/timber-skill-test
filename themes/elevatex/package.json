@@ -40,7 +40,7 @@
 		"normalize.css": "^8.0.1",
 		"postcss": "^8.4.38",
 		"rfs": "^10.0.0",
-		"sass": "^1.77.0",
+		"sass": "1.77.1",
 		"vinyl-named-with-path": "^1.0.0",
 		"waypoints": "^4.0.1",
 		"webpack": "^5.91.0",

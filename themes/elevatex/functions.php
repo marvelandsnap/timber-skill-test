@@ -25,9 +25,9 @@ Timber::$dirname = 'twig';
 
 /* ElevateX ******************************************************************/
 
-require_once __DIR__ . '/inc/elevatex/class-elevatex-theme.php';
+require_once __DIR__ . '/inc/elevatex/class-theme.php';
 
-new ElevateX_Theme();
+new \ElevateX\Theme();
 
 /* ...and the rest ***********************************************************/
 

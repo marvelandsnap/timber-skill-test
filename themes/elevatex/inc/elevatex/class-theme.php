@@ -1,6 +1,6 @@
 <?php
 /**
- * ElevateX_Theme class definition.
+ * ElevateX\Theme class definition.
  *
  * @package    WordPress
  * @subpackage ElevateX
@@ -9,28 +9,30 @@
  * @link       https://www.marvelandsnap.com
  */
 
+namespace ElevateX;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once __DIR__ . '/class-elevatex-theme-base.php';
+require_once __DIR__ . '/class-foundation.php';
 
-if ( ! class_exists( 'ElevateX_Theme' ) ) {
+if ( ! class_exists( '\ElevateX\Theme' ) ) {
 
 	/**
-	 * ElevateX_Theme class definition.
+	 * ElevateX\Theme class definition.
 	 */
-	class ElevateX_Theme extends ElevateX_Theme_Base {
+	class Theme extends Foundation {
 
 		/**
-		 * ElevateX_Theme class constructor.
+		 * ElevateX\Theme class constructor.
 		 */
 		public function __construct() {
 
 			$options = array();
 
 			/**
-			 * Construct the ElevateX_Theme_Base parent class, overriding its
+			 * Construct the ElevateX\Foundation parent class, overriding its
 			 * default options if necessary. Please refer to that class's
 			 * definition and constructor for more information.
 			 */

@@ -29,7 +29,7 @@ A theme designed to help lift your website to new heights. Made with ♥ in Otta
 
 ### `dist`
 
-Regardless of which task you run, the resulting compiled, linted and minified assets are output to the `dist` directory, overwriting the same assets that already exist there; versioned (when building for production); and, finally, recorded in `rev-manifest.json`, which is used by `ElevateX::get_asset_version()` as the source of truth for their paths and filenames.
+Regardless of which task you run, the resulting compiled, linted and minified assets are output to the `dist` directory, overwriting the same assets that already exist there; versioned (when building for production); and, finally, recorded in `rev-manifest.json`, which is used by `\ElevateX\Theme::get_asset_version()` as the source of truth for their paths and filenames.
 
 ## Theme structure
 
@@ -59,7 +59,7 @@ Regardless of which task you run, the resulting compiled, linted and minified as
     </tr>
     <tr>
       <td valign="top" style="white-space: nowrap;"><code>inc/elevatex</code></td>
-      <td>Classes for ElevateX, including <code>ElevateX_Theme</code> (i.e. this theme's primary class).</td>
+      <td>Classes for ElevateX, including <code>\ElevateX\Theme</code> (i.e. this theme's primary class).</td>
     </tr>
     <tr>
       <td valign="top" style="white-space: nowrap;"><code>inc/hooks</code></td>
