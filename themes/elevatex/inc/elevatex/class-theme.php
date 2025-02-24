@@ -29,7 +29,9 @@ if ( ! class_exists( '\ElevateX\Theme' ) ) {
 		 */
 		public function __construct() {
 
-			$options = array();
+			$options = array(
+				'disable_acf_dashboard_on_pantheon' => false,
+			);
 
 			/**
 			 * Construct the ElevateX\Foundation parent class, overriding its
