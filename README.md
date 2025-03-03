@@ -27,12 +27,12 @@ Your skill test will incorporate a “bare” version of our ElevateX starter th
 ## Getting started
 
 1. Accept our invitation to the `timber-skill-test` repository.
-2. Clone the `BRANCHNAME` branch of the repository: `git clone -b BRANCHNAME https://github.com/marvelandsnap/timber-skill-test.git`
+2. Clone the `todosiienko` branch of the repository: `git clone -b todosiienko https://github.com/marvelandsnap/timber-skill-test.git`
 3. Import the provided preconfigured database from `database/database.sql.gz`, which includes the following Administrator account:
-    - Username: `BRANCHNAME`
+    - Username: `todosiienko`
     - Password: `timberskilltest`
 4. Read the following requirements and refer to `themes/elevatex/README.md` to begin development.
-5. Commit and push your work to the `BRANCHNAME` branch, including a final export of your working database and `wp-content/uploads` folder.
+5. Commit and push your work to the `todosiienko` branch, including a final export of your working database and `wp-content/uploads` folder.
 
 ## Requirements
 
@@ -86,7 +86,7 @@ Your skill test will incorporate a “bare” version of our ElevateX starter th
 
 - **Don’t** install or use any additional frameworks, libraries, page builders or plugins that aren’t already included with WordPress core or this package, including Gutenberg, Bootstrap, Tailwind, etc. jQuery, Timber and Advanced Custom Fields should be all you need.
 - **Don’t** send us *all* of your databases. Only export and commit the database for the skill test itself.
-- **Don’t** pull from or push to any branches of the `timber-skill-test` repository *except* for the `BRANCHNAME` branch we have created for you.
+- **Don’t** pull from or push to any branches of the `timber-skill-test` repository *except* for the `todosiienko` branch we have created for you.
 
 ## Creators
 
