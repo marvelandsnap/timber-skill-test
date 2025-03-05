@@ -144,7 +144,6 @@ h1, h2, h3, h4, p {
 
     &_item {
       display: flex;
-      // width: 50%;
       align-items: center;
       margin-bottom: 60px;
       min-width: 330px;
@@ -271,6 +270,10 @@ h1, h2, h3, h4, p {
 
   .accordion {
     flex-direction: column;
+
+    &__headers {
+      max-width: 100%;
+    }
 
     &__content_item {
       margin-bottom: 30px;
