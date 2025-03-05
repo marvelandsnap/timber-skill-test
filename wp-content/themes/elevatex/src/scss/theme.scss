@@ -12,3 +12,76 @@ body {
   font-family: $font-family-montserrat;
   background-color: $bg-colour-main;
 }
+
+.container {
+  padding: 0 120px;
+}
+
+// Header
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+#header-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#main-logo {
+  display: block;
+}
+
+nav#header-navigation {
+  display: flex;
+  align-items: center;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 50px;
+    text-transform: lowercase;
+    font-size: 19px;
+    transition: all .2s ease;
+
+    &:hover {
+      color: $main-colour;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+// Footer
+
+#footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+
+  .footer-labels {
+    margin-bottom: 15px;
+
+    span {
+      margin-right: 35px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .footer-labels,
+  .copyright {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
