@@ -1,0 +1,9 @@
+@use 'sass:list';
+
+$theme-path: '/wp-content/themes/elevatex';
+
+$login-logo-url:          $theme-path + '/img/login.svg';
+$login-logo-aspect-ratio: list.slash(450, 103);
+
+$font-family-roboto-mono: 'Roboto Mono', monospace;
+$font-family-montserrat:  'Montserrat', sans-serif;

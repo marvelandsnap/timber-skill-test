@@ -1,0 +1,14 @@
+@import 'normalize.css/normalize';
+
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'a11y';
+
+
+// Global styles
+
+body {
+  font-family: $font-family-montserrat;
+  background-color: $bg-colour-main;
+}
