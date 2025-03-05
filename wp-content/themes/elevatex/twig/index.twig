@@ -2,6 +2,17 @@
 
 {% block content %}
 
-  {{ _e('Content') }}
+  {# {{ _e('Content') }} #}
+
+  <section id="hero">
+    <div class="container">
+      <div class="hero__textblock">
+        <span class="hero__textblock_text hero__textblock_text_title">{{ _e("create. deliver. manage.") }}</span>
+        <span class="hero__textblock_text hero__textblock_text_subtitle">{{ _e("more agile and effective digital experiences") }}</span>
+        <a href="#" class="btn btn-hero">{{ _e("how it works _") }}</a>
+      </div>        
+    </div>
+  </section>
+
 
 {% endblock %}

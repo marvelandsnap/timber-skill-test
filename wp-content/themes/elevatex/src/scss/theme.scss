@@ -17,6 +17,21 @@ body {
   padding: 0 120px;
 }
 
+.btn {
+  font-size: 24px;
+  border: 3px solid $secondary-colour;
+  padding: 30px 60px 25px;
+  color: #fff;
+  background-color: transparent;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $secondary-colour;
+    transition: all .2s ease;
+  }
+}
+
 // Header
 
 header {
@@ -53,6 +68,42 @@ nav#header-navigation {
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+}
+
+// Section #1: Hero
+
+#hero {
+  margin-bottom: 200px;
+}
+
+.hero__textblock {
+  background-image: url('../../img/home-banner.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 930px;
+  background-position-x: 100%;
+
+  &_text {
+    display: block;
+    max-width: 700px;
+
+    &_title {
+      font-size: 86px;
+      line-height: 80px;
+      font-weight: 700;
+      color: #fff;
+      padding: 210px 0 30px;
+    }
+
+    &_subtitle {
+      font-size: 54px;
+      line-height: 71px;
+      font-weight: 500;
+      color: $main-colour;
+      font-family: $font-family-roboto-mono;
+      margin-bottom: 90px;
     }
   }
 }
