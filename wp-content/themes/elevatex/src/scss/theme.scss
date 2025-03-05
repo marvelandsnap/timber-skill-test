@@ -13,6 +13,11 @@ body {
   background-color: $bg-colour-main;
 }
 
+h1, h2, h3, h4, p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 .container {
   padding: 0 120px;
 }
@@ -35,15 +40,13 @@ body {
 // Header
 
 header {
-  display: flex;
-  justify-content: space-between;
+  @include flex-center(row, center, space-between);
   padding: 30px 0;
 }
 
 #header-wrap {
-  display: flex;
+  @include flex-center(row, center, space-between);
   width: 100%;
-  justify-content: space-between;
 }
 
 #main-logo {
@@ -51,8 +54,7 @@ header {
 }
 
 nav#header-navigation {
-  display: flex;
-  align-items: center;
+  @include flex-center(row, center, space-between);
 
   a {
     color: #fff;
@@ -103,11 +105,143 @@ nav#header-navigation {
       font-weight: 500;
       color: $main-colour;
       font-family: $font-family-roboto-mono;
-      margin-bottom: 90px;
+      margin: 0 0 90px;
     }
   }
 }
 
+// Section #2: Team Members
+
+.team-members-title {
+  font-size: 38px;
+  line-height: 46px;
+  color: #fff;
+  margin-bottom: 30px;
+  display: block;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: 0;
+    height: 34px;
+    width: 34px;
+    background-color: $main-colour;
+  }
+}
+
+.accordion {
+  display: flex;
+  justify-content: space-between;
+
+  &__headers {
+    width: 100%;
+    max-width: 30%;
+  }
+
+  &__contents {
+    width: 100%;
+    max-width: 70%;
+  }
+
+  &__item {
+    border-bottom: 1px solid #ddd;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__header {
+    color: #fff;
+    font-size: 24px;
+    padding: 0 15px 15px 0;
+    cursor: pointer;
+    
+    &:hover {
+      color: $secondary-colour;
+      transition: all .2s ease;
+    }
+  }
+
+  &__header--active {
+    color: $secondary-colour;
+  }
+
+  &__content {
+    display: none;
+    padding: 10px;
+    background-color: transparent;
+
+    &_item {
+      display: flex;
+      width: 50%;
+      align-items: center;
+      margin-bottom: 60px;
+
+      &_left {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__content--active {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__featured_image {
+    width: 133px;
+    height: 133px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &__member_name {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #fff;
+  }
+
+  &__department {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__links {
+    display: flex;
+
+    &_bio {
+      position: relative;
+
+      &:after {
+        content: "|";
+        color: $secondary-colour;
+        top: 0;
+        right: 0;
+        padding: 0 10px;
+      }
+    }
+    &_bio,
+    &_resume {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+
+      &:hover {
+        color: $secondary-colour;
+        transition: all .2s ease;
+      }
+    }
+  }
+}
 
 // Footer
 

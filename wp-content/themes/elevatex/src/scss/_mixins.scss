@@ -18,3 +18,12 @@
     @include visually-hidden();
   }
 }
+
+// Iurii's styles:
+
+@mixin flex-center($direction: row, $align-items: center, $justify-content: space-between) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}

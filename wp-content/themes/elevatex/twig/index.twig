@@ -2,17 +2,107 @@
 
 {% block content %}
 
-  {# {{ _e('Content') }} #}
-
-  <section id="hero">
+  <section id="hero" aria-labelledby="hero-title">
     <div class="container">
       <div class="hero__textblock">
-        <span class="hero__textblock_text hero__textblock_text_title">{{ _e("create. deliver. manage.") }}</span>
-        <span class="hero__textblock_text hero__textblock_text_subtitle">{{ _e("more agile and effective digital experiences") }}</span>
-        <a href="#" class="btn btn-hero">{{ _e("how it works _") }}</a>
+        <h1 id="hero-title" class="hero__textblock_text hero__textblock_text_title">{{ _e("create. deliver. manage.") }}</h1>
+        <p class="hero__textblock_text hero__textblock_text_subtitle">{{ _e("more agile and effective digital experiences") }}</p>
+        <a href="#how-it-works" class="btn btn-hero" aria-label="{{ _e('How it works') }}">{{ _e("how it works _") }}</a>
       </div>        
     </div>
   </section>
+
+ <section id="team-members" aria-labelledby="team-members-title">
+    <div class="container">
+      <h2 id="team-members-title" class="team-members-title">{{ _e("Team Members") }}</h2>
+      {# TODO: Consider creating a partial for the accordion for reuse #}
+      <div class="accordion" role="region" aria-labelledby="team-members-title">
+        <div class="accordion__headers">
+          <div class="accordion__header accordion__header--active" data-toggle="accordion" data-target="content-all" aria-expanded="true" aria-controls="content-all">
+            {{ _e("All team members") }}
+          </div>
+          {% for department in departments %}
+            <div class="accordion__header" data-toggle="accordion" data-target="content-{{ department.term_id }}" aria-expanded="false" aria-controls="content-{{ department.term_id }}">
+              {{ department.name }}
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="accordion__contents">
+          <div id="content-all" class="accordion__content accordion__content--active" role="region" aria-labelledby="team-members-title">
+            {% set all_team_members = [] %}
+            {% for department in departments %}
+              {% for member in department.team_members %}
+                {% set all_team_members = all_team_members|merge([member]) %}
+              {% endfor %}
+            {% endfor %}
+
+            {% if all_team_members %}
+              {% for member in all_team_members %}
+                <div class="accordion__content_item">
+                  <div class="accordion__content_item_left">
+                    {% if member.thumbnail %}
+                      <img class="accordion__featured_image" src="{{ member.thumbnail.guid }}" alt="{{ member.title }}">
+                    {% else %}
+                      <p>No featured image available</p>
+                    {% endif %}
+                  </div>
+                  <div class="accordion__content_item_right">
+                    <h3 class="accordion__member_name">{{ member.title }}</h3>
+                    <p class="accordion__department">{{ member.department_name }}</p>
+                    <div class="accordion__links">
+                      {% if member.biography_link.url %}
+                        <a class="accordion__links_bio" href="{{ member.biography_link.url }}" target="{{ member.biography_link.target }}" aria-label="{{ _e('Biography of') }} {{ member.title }}">{{_e('Biography') }}</a>
+                      {% endif %}
+                      {% if member.resume_link.url %}
+                        <a class="accordion__links_resume" href="{{ member.resume_link.url }}" target="{{ member.resume_link.target }}" aria-label="{{ _e('Resume of') }} {{ member.title }}">{{_e('Resume') }}</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>{{ _e('No team members available.') }}</p>
+            {% endif %}
+          </div>
+
+          {% for department in departments %}
+            <div id="content-{{ department.term_id }}" class="accordion__content" role="region" aria-labelledby="team-members-title">
+              {% if department.team_members %}
+                {% for member in department.team_members %}
+                  <div class="accordion__content_item">
+                    <div class="accordion__content_item_left">
+                      {% if member.thumbnail %}
+                        <img class="accordion__featured_image" src="{{ member.thumbnail.guid }}" alt="{{ member.title }}">
+                      {% else %}
+                        <p>No featured image available</p>
+                      {% endif %}
+                    </div>
+                    <div class="accordion__content_item_right">
+                      <h3 class="accordion__member_name">{{ member.title }}</h3>
+                      <p class="accordion__department">{{ department.name }}</p>
+                      <div class="accordion__links">
+                        {% if member.biography_link.url %}
+                          <a class="accordion__links_bio" href="{{ member.biography_link.url }}" target="{{ member.biography_link.target }}" aria-label="{{ _e('Biography of') }} {{ member.title }}">{{_e('Biography') }}</a>
+                        {% endif %}
+                        {% if member.resume_link.url %}
+                          <a class="accordion__links_resume" href="{{ member.resume_link.url }}" target="{{ member.resume_link.target }}" aria-label="{{ _e('Resume of') }} {{ member.title }}">{{_e('Resume') }}</a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <p>{{ _e('No team members available.') }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}  
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
 
 {% endblock %}
