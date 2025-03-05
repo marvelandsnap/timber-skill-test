@@ -1,14 +1,13 @@
 <header>
-  {# {{ _e('Header') }} #}
-  <div id="header-wrap" class="container">
-    <a id="main-logo" href="/">
+  <div class="header__wrap container">
+    <a class="header__logo" href="/">
       <img src="{{ theme.link }}/img/M&S-FullLogo.svg" alt="Main logo">
     </a>
     
-    <nav id="header-navigation">
-      <a href="#home" >{{ _e('Home') }}</a>
-      <a href="#about" >{{ _e('About') }}</a>
-      <a href="#contact" >{{ _e('Contact') }}</a>
+    <nav class="header__navigation" aria-label="Main navigation">
+      <a class="header__navigation-link" href="#home">{{ _e('Home') }}</a>
+      <a class="header__navigation-link" href="#about">{{ _e('About') }}</a>
+      <a class="header__navigation-link" href="#contact">{{ _e('Contact') }}</a>
     </nav>
   </div>
 </header>
