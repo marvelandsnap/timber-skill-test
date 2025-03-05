@@ -1,0 +1,55 @@
+
+// Here is a list of all available animations. Usually, I'm using AOS library (https://michalsnik.github.io/aos/) for such purposes. However, you don't want me to use any third-party libraries, so I add my own basic animations.
+
+// 1. Fade-in (fade-in-element)
+// 2. Zoom-in (zoom-in-element)
+// 3. Scroll-in from the left side (scroll-in-left-element)
+// 4. Scroll-in from the right side (scroll-in-right-element)
+
+.fade-in-element,
+.zoom-in-element,
+.scroll-in-left-element,
+.scroll-in-right-element {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+// Fade-in
+.fade-in-element {
+  transform: translateY(20px);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Zoom-in
+.zoom-in-element {
+  transform: scale(0.8);
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Scroll-in from the left side
+.scroll-in-left-element {
+  transform: translateX(-100px);
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Scroll-in from the right side
+.scroll-in-right-element {
+  transform: translateX(100px);
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

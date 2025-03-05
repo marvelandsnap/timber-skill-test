@@ -24,3 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// I added this script to render animation only when elements at least 10% visible in viewport.
+
+// Animations logic
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(
+      ".fade-in-element, .zoom-in-element, .scroll-in-left-element, .scroll-in-right-element"
+    );
+  
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // Stop observing once the animation is triggered
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Element needs to be at least 10% visible
+      }
+    );
+  
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+  });
+  

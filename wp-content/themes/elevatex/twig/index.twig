@@ -5,9 +5,9 @@
   <section id="hero" aria-labelledby="hero-title">
     <div class="container">
       <div class="hero__textblock">
-        <h1 id="hero-title" class="hero__textblock_text hero__textblock_text_title">{{ _e("create. deliver. manage.") }}</h1>
-        <p class="hero__textblock_text hero__textblock_text_subtitle">{{ _e("more agile and effective digital experiences") }}</p>
-        <a href="#how-it-works" class="btn btn-hero" aria-label="{{ _e('How it works') }}">{{ _e("how it works _") }}</a>
+        <h1 id="hero-title" class="hero__textblock_text hero__textblock_text_title scroll-in-left-element">{{ _e("create. deliver. manage.") }}</h1>
+        <p class="hero__textblock_text hero__textblock_text_subtitle scroll-in-left-element">{{ _e("more agile and effective digital experiences") }}</p>
+        <a href="#how-it-works" class="btn btn-hero fade-in-element" aria-label="{{ _e('How it works') }}">{{ _e("how it works _") }}</a>
       </div>        
     </div>
   </section>
@@ -17,7 +17,7 @@
       <h2 id="team-members-title" class="team-members-title">{{ _e("Team Members") }}</h2>
       {# TODO: Consider creating a partial for the accordion for reuse #}
       <div class="accordion" role="region" aria-labelledby="team-members-title">
-        <div class="accordion__headers">
+        <div class="accordion__headers scroll-in-left-element">
           <div class="accordion__header accordion__header--active" data-toggle="accordion" data-target="content-all" aria-expanded="true" aria-controls="content-all">
             {{ _e("All team members") }}
           </div>
@@ -28,7 +28,7 @@
           {% endfor %}
         </div>
 
-        <div class="accordion__contents">
+        <div class="accordion__contents scroll-in-right-element">
           <div id="content-all" class="accordion__content accordion__content--active" role="region" aria-labelledby="team-members-title">
             {% set all_team_members = [] %}
             {% for department in departments %}
@@ -102,7 +102,5 @@
 
     </div>
   </section>
-
-
 
 {% endblock %}
