@@ -1,0 +1,31 @@
+// Footer
+
+.footer__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer__left {
+  
+    .footer__links {
+      margin-bottom: 15px;
+      
+  
+      a {
+        margin-right: 35px;
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+  
+    }
+  
+    .footer__link,
+    .footer__links a,
+    .footer__copyright {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
